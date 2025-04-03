@@ -17,8 +17,7 @@
 \sloppy\sloppypar\raggedbottom\frenchspacing
 
 % commands
-\newcommand{\abby}[1]{\textbf{Abby says: #1}}
-\newcommand{\choice}[1]{\textcolor{teal}{#1}}
+\newcommand{\abby}[1]{\textcolor{violet}{Abby says: #1}}
 \newcommand{\ksf}[1]{\textcolor{purple}{KSF says: #1}}
 \newcommand{\catwise}{\textsl{CatWISE}\xspace}
 \newcommand{\catwisetwentytwenty}{\textsl{CatWISE2020}\xspace}
@@ -54,18 +53,18 @@ Anomalous power on large angular scales}
 \begin{abstract}\noindent % Hogg insists on this
     There is a discrepancy in amplitude between the dipole measured in the cosmic microwave background and the dipole measured in the distribution of radio and infrared selected quasars.
     These dipoles should be consistent if they are both caused primarily by a local Doppler boost.
-    Here we investigate the amplitudes of the large angular-scale spherical harmonic modes ($1\leq\ell\leq 8$) in the sky distribution of two all-sky quasar catalogs, \quaia and \catwise, both of which depend on NASA\! \wise infrared data.
-    We adopt a forward-modeling approach to generate all-sky mock density maps for both catalogs and employ a form of simulation-based \abby{Hogg: field-level?} inference to simultaneously measure the dipole amplitude and the level of any excess power on these large angular scales.
-    This inference yields dipole amplitude $X^{+Y}_{-Z}$ in the direction of the kinematic expectation (xx sigma higher than the expected amplitude) and an excess angular power variance amplitude of $X^{+Y}_{-Z}$.
+    Here we investigate the amplitudes of the large angular-scale spherical harmonic modes ($1\leq\ell\leq 8$) in the sky distribution of two all-sky quasar catalogs, \quaia and \catwise.
+    We adopt a forward-modeling approach to generate all-sky mock density maps for each catalog and employ  simulation-based \abby{Hogg: field-level?} inference at the map level to simultaneously measure the dipole amplitude \ksf{along the CMB-measured direction ??} and the level of any excess power on these large angular scales.
+    This inference yields dipole amplitude $X^{+Y}_{-Z}$ in the direction of the kinematic expectation (xx sigma higher than the expected amplitude) and an excess angular power variance amplitude of $X^{+Y}_{-Z}$. \ksf{quote two sets of results for each of the catalogs} \abby{KSF/Hogg: should we quote the amplitude relative to the expected one (instead)? without knowing the EB expectation, these values are initially meaningless except to readers who are familiar with the specific catalogs}
     The excess power we find could indicate a very severe problem with the $\Lambda$CDM model.
-    Our view instead is that this power is probably produced by unmodeled selection effects in these two quasar catalogs, and that it is contaminating all quasar dipole measurements that do not account for it.
+    Our view instead is that this power is probably produced by unmodeled selection effects in these two quasar catalogs, and that it is contaminating all quasar dipole measurements that do not account for it. \ksf{i want to phrase these last 2 sentences very carefully; i don't think they should be this strong, and they should be backed by our results (aka depending on level of excess power found}
 \end{abstract}
 
 \keywords{foo --- bar}
 
 \section{Introduction}
 Our peculiar velocity relative to the rest frame of the Universe creates a dipole in the signals we measure across the sky.
-There exists a dipole in the temperature of the CMB, taken to be purely kinematic in origin, which is used to infer a heliocentric velocity of
+The CMB exhibits a temperature dipole, which is taken to be purely kinematic in origin and used to infer a heliocentric velocity of
 \begin{equation}
     \label{eq:CMB_velocity}
     v_0 = (369.825\pm 0.070)\,\mathrm{km\, s}^{-1}\ \mathrm{towards}\ (l,b) = (264.021\pm0.009^\circ, 48.253\pm0.004^\circ)
@@ -79,35 +78,52 @@ The predominant approximation comes from \citet{ellis_expected_1984} and gives t
     \label{eq:ellisbaldwin}
     \vec{\mathcal{D}} \simeq \left[2+x(1+\alpha)\right]\vobs/c
 \end{equation}
-where $x$ is the number-count slope of the sources at the magnitude limit of the sample, and $\alpha$ is the effective spectral index \abby{Hogg/KSF: will the average reader know what effective spectral index means, or should I define?} of the sources.
+where $x$ is the number-count slope of the sources at the magnitude limit of the sample, and $\alpha$ is the effective spectral index \abby{KSF/Hogg: will the average reader know what effective spectral index means, or should I define?} of the sources.
 
-However, there is a claimed \abby{Hogg/KSF: help with word choice here?} tension between these two dipole measurements.
-Several initial analyses were performed on radio source counts from the 1.4 GHz NRAO VLA Sky Survey (NVSS; \citealt{condon_nrao_1998}).
-Though \citet{blake_detection_2002} found this matter dipole to be broadly consistent with the expectation from the CMB, later work such as \citet{singal_large_2011} showed that while the direction of the dipole roughly agreed with the CMB, its amplitude was larger than expected from Eq. \ref{eq:ellisbaldwin}.
-Results remain mixed; for example, \citet{darling_universe_2022} found the matter dipole to be consistent with the CMB expectation in both direction and amplitude using radio data from the Very Large Array Sky Survey (VLASS; \citealt{lacy_karl_2020}) and the Rapid
+However, there is a [claimed] \abby{KSF/Hogg: help with word choice here?} tension between these two dipole measurements.
+Several of the initial analyses were performed on radio source counts from the 1.4 GHz NRAO VLA Sky Survey (NVSS; \citealt{condon_nrao_1998}).
+Early work, such as \citet{blake_detection_2002}, found this matter dipole to be broadly consistent with the expectation from the CMB, though with high uncertainties.
+However, later work found that while the direction of the dipole roughly agreed with the CMB, its amplitude was larger than expected.
+\citet{singal_large_2011} found a statistically significant ($\sim3\sigma$) tension in the NVSS dipole amplitude, with the measured amplitude four times larger than expected from Eq. \ref{eq:ellisbaldwin}.
+Several other studies in the radio detected a high dipole amplitude \citep{rubart_cosmic_2013, tiwari_dipole_2015, colin_high_2017, bengaly_probing_2018}.
+Nevertheless, results remain mixed; for example, \citet{gibelyou_dipoles_2012} also measured a high NVSS dipole amplitude but concluded that it was likely due to unmitigated systematics in the catalog.
+\citet{darling_universe_2022} found the matter dipole to be consistent with the CMB expectation in both direction and amplitude using radio data from the Very Large Array Sky Survey (VLASS; \citealt{lacy_karl_2020}) and the Rapid
 Australian Square Kilometer Array Pathfinder Continuum
 Survey (RACS; \citealt{mcconnell_rapid_2020}).
 
-Recently, \citet{secrest_test_2021} (hereafter S21) measured the dipole from a sample of infrared-selected quasars from \catwisetwentytwenty to have more than twice the expected amplitude at $4.9\sigma$ confidence.
-\citet{dam_testing_2022} confirmed the S21 result for the identical sample using a different, Bayesian approach.
-This suggests that the source of the discrepancy with the CMB dipole is the sample itself (with the specific choices made in its construction) rather than the analysis method.
-\abby{should add more recent paper results at this point...}
+Over the past few years, many investigations have turned to infrared- and optically-selected quasars.
+\citet{secrest_test_2021} (hereafter S21) measured the dipole in a sample of IR-selected quasars from \catwisetwentytwenty to be over twice the expected amplitude at $4.9\sigma$ confidence.
+This sample is completely independent from the other radio catalogs, and as a space-based telescope, \textit{WISE} is unaffected by potential ground-based systematic effects.
+\citet{dam_testing_2022} confirmed the S21 result for the identical sample using a different, Bayesian approach, with an even higher confidence of $5.7\sigma$, suggesting that the source of the discrepancy with the CMB dipole is the sample itself (with the specific choices made in its construction) rather than the analysis method.
+A follow-up joint analysis with \catwise and NVSS led to a similar result \abby{vague} \citep{secrest_challenge_2022}.
 
-Importantly, unmitigated systematics in the source density maps would impact the angular power at several modes, not just $\ell=1$, though investigations of the angular power in these maps at large angular scales ($\ell\lesssim 10$) have been rare.
-\abby{``rare"... back this up with citations!}
+% Importantly, unmitigated systematics in the source density maps would impact the angular power at several modes, not just $\ell=1$, though investigations of the angular power in these maps at large angular scales ($\ell\lesssim 10$) have been rare.
+% \abby{``rare"... back this up with citations!}
 
 \quaia, a more recent all-sky spectroscopic quasar sample constructed from \gaia and \unwise, offers a new opportunity to measure the LSS dipole \citep{storey-fisher_quaia_2023}.
 The catalog is not totally independent from the S21 sample, since both rely on infrared observations from \textit{WISE}—nevertheless, \quaia involves different observations, source selection, and systematics, and therefore can serve as a check on the dipole measured in S21.
-In this work, we measure the number-count dipole in the S21 and \quaia samples using the approach described in S21 and compare each to their expectation: the direction of the CMB dipole with amplitude given by Eq. \ref{eq:ellisbaldwin}.
+\citet{mittal_cosmic_2023} conducted a Bayesian analysis of the \quaia $G\le20.0$ sample and found its dipole to be consistent with the expectation in both direction and amplitude.
+By contrast, the \quaia dipole measured by \citet{singal_cosmic_2024} was 3-4 times larger than expected.
+With a significantly high dipole amplitude reported by several different analyses, across independent samples selected at multiple wavelengths, the question arises whether the matter dipole is purely kinematic, or if it includes a nonkinematic component which [interferes constructively] with the kinematic one.
+
+\abby{this might be a good spot to properly introduce potential issues with previous dipole measurements:
+\begin{itemize}
+    \item mode-coupling effects on the cut sky \citep{abghari_reassessment_2024, oayda_cosmic_2024}
+    \item theoretical complications with the EB approximation: source redshift evolution \citep{dalang_kinematic_2022, guandalin_theoretical_2022} (and pushback \citep{von_hausegger_expected_2024}), shot noise and clustering contributions to the total dipole \citep{cheng_is_2023} (and pushback from \citep{singal_cosmic_2024})
+\end{itemize}}
+
+In this work, we measure the number-count dipole in the S21 and \quaia samples and compare each to their expectation: the direction of the CMB dipole with amplitude given by Eq. \ref{eq:ellisbaldwin}.
+We adopt two different approaches:
+First, we use the ``standard'' technique employed by S21 and several other works, which involves a linear least-squares fit to three orthogonal dipole templates.
+We confirm the S21 result with this method in the \catwise catalog.
 However, in order to avoid mode-coupling effects on the measured dipole, we further employ a forward-modeling approach to infer both the amplitude of the dipole in the expected direction and the overall level of excess angular power at multipoles $\ell\le 8$.
-\abby{need to explain motivation: why are we doing this? If there is unaccounted-for angular power at other large angular scales, due to mode coupling this could inflate the measured dipole amplitude on the cut sky... (I'm actually not sure how much I trust this statement now since checking out \citet{oayda_cosmic_2024}...)}
-We generate mock all-sky quasar density maps with the same selection function as applied to the real data and employ an Approximate Bayesian Computation (ABC) scheme to estimate the parameter posteriors.
+We generate mock all-sky quasar density maps with the same selection function as applied to the real data and apply field-level inference via an Approximate Bayesian Computation (ABC) scheme to estimate the parameter posteriors.
 
 This paper is organized as follows.
 Section \ref{sec:data} describes the construction of the all-sky samples from \catwise and \quaia.
 Section \ref{sec:dipole_theory} discusses the theoretical matter dipole and the expected amplitude of the dipole in the \catwise and \quaia catalogs under the Ellis-Baldwin approximation.
-In Section \ref{sec:inference_method} we present our forward-modeling approach, the quasar density model used to generate mock sky maps, and parameter inference via Approximate Bayesian Computation (ABC) using a Sequential Monte Carlo method.
-Finally, Sections \ref{sec:results} and \ref{sec:discussion} respectively contain the results and subsequent discussion.
+In Section \ref{sec:dipole_measurement} we present our two measurement approaches: the ``standard'' method (Section \ref{sec:standard_dipole}), and the forward-modeling approach (Section \ref{sec:FLI}).
+Section \ref{sec:results} contains the results for each catalog using these two approaches, and Section \ref{sec:discussion} comprises a discussion of these results.
 
 
 \section{The all-sky quasar samples}
@@ -227,18 +243,18 @@ For \quaia, the expected dipole amplitude in the fiducial sample is $\mathcal{D}
 
 \abby{bad name.. placeholder}
 
-The dipole anisotropy in the source counts in direction $\hat n=(\theta,\phi)$ on the sky can be expressed as
+The dipole anisotropy in the source counts in direction $\hat n=(\theta,\phi)$ \abby{this isn't correct, right? with $\hat n$ being a 3-vector and $(\theta,\phi)$ a 2-vector on the sphere... how do I translate this?} on the sky can be expressed as
 \begin{equation}
     \mathcal{D}(\theta,\phi)=\vec{\mathcal{D}}\cdot \hat n = \sum_{j=1}^3 d_jD_j(\theta,\phi)
 \end{equation}
 where $\vec{\mathcal{D}}\equiv(d_1,d_2,d_3)$ is a 3-vector of amplitudes, and $D_j(\theta,\phi)$ are three orthogonal dipole templates, shown in Figure \ref{fig:dipole_templates}.
-Under the assumption that the observed quasar distribution is isotropic but modified by a Doppler boost (i.e. that the only anisotropy is dipolar), the expected number of quasars at $(\theta,\phi)$ on the sky is the sum of the monopole and dipole contributions:
+\abby{this notation feels icky, too many $d$ variables, $D$, $\mathcal{D}$... KSF/Hogg: any suggestions?}
+Under the assumption that the observed quasar distribution is isotropic but modified by a Doppler boost, as predicted by CP, the expected number of quasars at $(\theta,\phi)$ on the sky is the sum of the monopole and dipole contributions:
 \begin{equation}
 \label{eq:dipole_model}
     n'(\theta,\phi) = \bar n + \mathcal{D}(\theta,\phi)
 \end{equation}
 where $\bar n$ is the monopole, the mean number of quasars in the map.
-\abby{this notation feels icky, too many $d$ variables, $D$, $\mathcal{D}$... KSF/Hogg: any suggestions?}
 \abby{suggestions for ``expected number of quasars" ? do we like the prime? or should I use a different variable (also see eq. \ref{eq:chisq})?}
 
 Of course, the amplitude of the dipole (e.g. as given by \ref{eq:ellisbaldwin}) is the usual norm of the vector,
@@ -268,6 +284,8 @@ with the specific components related to the spherical harmonic coefficients as
 \end{equation}
 \abby{Hogg: what's the best way to write this math? \citet{gibelyou_dipoles_2012} aligns the dipole in the positive $z$ direction and then only expresses this relationship in terms of $|\vec{\mathcal{D}}|$ and $a_{10}$, without loss of generality. this is definitely the easiest to write, but it's a bit removed from what we do in practice (we use galactic coordinates and so do have to transform all three dipole components).}
 
+\abby{do we need this section if we end up not mentioning power spectra of the maps at all?}
+
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{images/alphas_xs_G20.5.png}
@@ -276,10 +294,12 @@ with the specific components related to the spherical harmonic coefficients as
 \end{figure}
 
 \section{Dipole measurement}
+\label{sec:dipole_measurement}
 
 \subsection{Linear least-squares fit}
 \label{sec:standard_dipole}
 
+\abby{KSF/Hogg: I don't discuss regularization at all... do we want to include this??}
 The [most straightforward / simplest] way to measure the dipole involves a linear least-squares fit to the three orthogonal dipole templates (Figure \ref{fig:dipole_templates}).
 We use the model given by Eq. \ref{eq:dipole_model}, so the four free parameters are the monopole and the amplitudes of the three dipole components:
 \begin{equation}
@@ -296,6 +316,8 @@ The best-fit \abby{I know this is a loaded term, not sure if I should expand on 
 \abby{Hogg: should I write out the linear algebra for the least-squares fit ?}
 
 S21 measures the dipole in the \catwisetwentytwenty sample (Figure \ref{fig:S21_map}) using the \texttt{healpy.fit\_dipole()} function, which performs this fit, assuming the identity for the variances $\sigma_p^2$.
+Unless otherwise stated, we use the inverse of the completeness—the value of the selection function in each pixel—for the variances.
+
 
 \subsection{Field-level inference}
 \label{sec:FLI}
@@ -341,7 +363,7 @@ The mock is accepted if $\delta_i$ is below some acceptance threshold $\varepsil
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{images/example_mock.png}
-    \caption{Example mock \quaia-like quasar overdensity map constructed using our model, in Galactic coordinates. \textit{Left:} Kinematic dipole in the CMB dipole direction with expected amplitude 0.0052 from the Ellis-Baldwin formula (Eq. \ref{eq:ellisbaldwin}). \textit{Center:} Sum of the kinematic dipole and excess power maps. The excess power amplitude is $\bar C = 10^{-6}$, which is around \quaia shot noise, and injected at scales $1\le\ell\le 8$. \textit{Right:} Final mock overdensity map: The sum of the kinematic dipole and excess power overdensity maps, masked and Poisson-sampled to include shot noise.}
+    \caption{Example mock \quaia-like quasar overdensity map constructed using our model, in Galactic coordinates. \textit{Left:} Kinematic dipole in the CMB dipole direction with expected amplitude $\dipamp=0.0052$ from the Ellis-Baldwin formula (Eq. \ref{eq:ellisbaldwin}). \textit{Center:} Sum of the kinematic dipole and excess power maps. The excess power amplitude is $\bar C = 10^{-6}$, which is around \quaia $G\le 20.0$ shot noise, and injected at scales $1\le\ell\le 8$. \textit{Right:} Final mock overdensity map: The sum of the kinematic dipole and excess power overdensity maps, masked and Poisson-sampled to include shot noise.}
     \label{fig:example_mock}
 \end{figure}
 
@@ -352,6 +374,15 @@ The mock is accepted if $\delta_i$ is below some acceptance threshold $\varepsil
 \subsection{Standard dipole measurement}
 \label{sec:standard_results}
 
+We measure the dipole in \quaia and \catwise using the standard approach via a linear least-squares fit as described in Section \ref{sec:standard_dipole}.
+For \quaia, when the healpixels are weighted by the completeness as estimated by the selection function (Fig. \ref{fig:selfuncs}), the measured dipole is $|\vec{\mathcal{D}}|=0.015$ towards $(l,b)=(320^\circ,21^\circ)$.
+This is 3.0x the expected amplitude of 0.0052 and [XX]$^\circ$ from the CMB dipole direction.
+
+For \catwise, when the healpixels are weighted equally, we confirm the S21 result of $|\vec{\mathcal{D}}|=0.015$ towards $(l,b)=(238^\circ,29^\circ)$.
+When the pixels are weighted by the generated \catwise selection function, the measured dipole is $|\vec{\mathcal{D}}|=0.012$ towards $(l,b)=(197^\circ,44^\circ)$.
+\abby{more precisely, our result using S21 method is $|\vec{\mathcal{D}}|=0.01532$, whereas S21 quotes $|\vec{\mathcal{D}}|=0.01554$ (directions are identical, at least to a 1/100th of a degree). do I need to explain this? or should I just leave it at 0.015 and not stress? I suspect this chalks up to a minor masking difference}
+
+\abby{emphasize that as pointed out in several papers \citep{abghari_reassessment_2024, lizancos_impact_2023}, these measurements suffer from mode coupling and so do not account for masking effects or systematics contamination from higher modes.}
 
 \subsection{Field-level inference}
 \label{sec:fbi_results}
@@ -359,18 +390,20 @@ We use the ABC-SMC algorithm with the forward-process model described in Section
 We require 500 accepted samples per generation and run for 18 generations.
 The resulting posteriors are shown in Figure \ref{fig:quaia_posterior} for \quaia and Figure \ref{fig:catwise_posterior} for \catwise.
 \abby{KSF/Hogg: do we want to show any $C(\ell)$ plots here?}
+For \quaia $G\le 20.0$, the inferred dipole amplitude along the CMB dipole direction is $0.0094^{+0.0026}_{-0.0028}$, roughly 1.8 times the expected value of $\dipamp=0.0052$.
+For \catwise, the inferred dipole amplitude along the CMB dipole direction is $0.0087^{+0.0042}_{-0.0047}$, roughly 1.2 times the expected value of $\dipamp=0.0074$.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.6\linewidth]{images/quaia_posterior.png}
-    \caption{Posterior distribution for the \quaia $G\le 20.0$ sample. The vertical solid line indicates the expected dipole amplitude from the Ellis-Baldwin test (0.0052), while the vertical dashed lines indicate the median of the parameters used to generate the accepted samples.}
+    \caption{Posterior distribution for the \quaia $G\le 20.0$ sample. The vertical solid line indicates the expected dipole amplitude from the Ellis-Baldwin test (0.0052), while the vertical dashed lines indicate the median of the parameters used to generate the accepted samples. \abby{TODO: add legend}}
     \label{fig:quaia_posterior}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.6\linewidth]{images/catwise_posterior.png}
-    \caption{Posterior distribution for the \catwise sample. The vertical solid line indicates the expected dipole amplitude from the Ellis-Baldwin test (0.0074), while the vertical dashed lines indicate the median of the parameters used to generate the accepted samples.}
+    \caption{Posterior distribution for the \catwise sample. The vertical solid line indicates the expected dipole amplitude from the Ellis-Baldwin test (0.0074), while the vertical dashed lines indicate the median of the parameters used to generate the accepted samples. \abby{TODO: add legend}}
     \label{fig:catwise_posterior}
 \end{figure}
 
@@ -394,6 +427,14 @@ The resulting posteriors are shown in Figure \ref{fig:quaia_posterior} for \quai
 
 \section{Discussion}
 \label{sec:discussion}
+\begin{itemize}
+    \item This is not a precise measurement!!!
+    \begin{itemize}
+        \item the expected dipole amplitude from \citet{ellis_expected_1984} is an approximation; doesn't account for source evolution \citep{guandalin_theoretical_2022, dalang_kinematic_2022}
+        \item good point made by \citet{cheng_is_2023} that most analyses (including ours to some extent??) assume that ``the dipole" in these catalogs is the kinematic dipole, but really ``the dipole" is the sum of the kinematic, shot noise, and clustering contributions to the power at $\ell=1$. so we don't expect the measured dipole in these catalogs to match the kinematic expectation, even in the absence of ``anomalous" (i.e. some foreground or other calibration error or systematic contamination) power
+    \end{itemize}
+    \item possible theoretical explanations for a discrepancy between the CMB and LSS dipoles \citep{han_qcd_2023, ghosh_probing_2023}
+\end{itemize}
 
 \appendix{Key points before I forget}
 \begin{enumerate}
